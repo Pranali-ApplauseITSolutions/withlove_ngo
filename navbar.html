@@ -1,0 +1,77 @@
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg bg-white navbar-light py-lg-0 px-lg-5 wow fadeIn px-3" data-wow-delay="0.2s"
+    id="top_header">
+    <a href="index.html" class="navbar-brand ">
+        <h1 class="common_text m-0"><img class="logo_size" src="./img/logo.jpg" alt="Icon"  loading="lazy" class="img-fluid"></h1>
+    </a>
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <ul class="navbar-nav">
+                <a href="index.html" class="nav-link nav-item active">Home</a>
+                <a href="about.html" class="nav-link nav-item ">About</a>
+                 <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Get Involved</a>
+                    <div class="dropdown-menu border-0 m-0">
+                        <a href="volunteer.html" class="dropdown-item">Volunteer With Us</a>
+                        <a href="intern.html" class="dropdown-item">Intern with us </a>
+                    </div>
+                </div>
+                <a href="project.html" class="nav-link nav-item active">Projects</a>
+                <a href="event_media.html" class="nav-link nav-item active">Events & Media</a>
+                <a href="csr_patners.html" class="nav-link nav-item">CSR  Partners</a>
+               
+                <a href="contact.html" class="nav-link nav-item">Contact</a>
+            </ul>
+        </div>
+
+        <a href="donatenow.html" class="btn donate_button py-2 px-4 d-lg-block p-3">
+            Donate Now &nbsp;
+            <i class="fa-solid fa-heart text-white blinking "></i>
+        </a>
+    </div>
+</nav>
+<!-- Navbar End -->
+
+<script>
+    $(document).ready(function () {
+        // Sticky Navbar on Scroll
+        var navbar = $("#top_header");
+        var sticky = navbar.offset().top;
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > sticky) {
+                navbar.addClass("fixed-top shadow-sm");
+            } else {
+                navbar.removeClass("fixed-top shadow-sm");
+            }
+        });
+
+    });
+    // *******active menu script*********
+ const path = window.location.pathname;
+  const page = path.split("/").pop();
+
+  // Select all nav links
+  const navLinks = document.querySelectorAll('.navbar-nav a.nav-link');
+
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    // Check if link matches current page
+    if (href === page || (href === "index.html" && page === "")) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+//   ******active menu script********
+</script>
+<style>
+    .fixed-top {
+        transition: all 0.5s ease-in-out;
+        background-color: white !important;
+    }
+
+</style>
